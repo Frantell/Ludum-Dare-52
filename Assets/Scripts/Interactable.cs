@@ -28,12 +28,11 @@ public class Interactable : MonoBehaviour {
                 GetComponent<CropSlot>().seed = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>().inventory;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>().inventory = PlayerItemTypes.Empty;
                 type = InteractableTypes.CropSeeded;
+                InvokeRepeating("Grow", Random.Range(10,20), Random.Range(10,20));
             }
         }
     }
-    void Update() {
-        if (type == InteractableTypes.CropSeeded) {
-
-        }
+    void Grow() {
+        
     }
 }
