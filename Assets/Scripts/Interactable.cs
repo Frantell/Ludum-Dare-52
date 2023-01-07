@@ -12,6 +12,7 @@ public enum InteractableTypes {
 
 public class Interactable : MonoBehaviour {
     public InteractableTypes type;
+    public float growthLevel;
 
     public void Interact() {
         if (type == InteractableTypes.Water) {
@@ -33,6 +34,11 @@ public class Interactable : MonoBehaviour {
         }
     }
     void Grow() {
-        
+        // change sprite
+        growthLevel += 1;
+        if (growthLevel == 5) {
+            // grown sprite
+            type = InteractableTypes.CropSeeded;
+        }
     }
 }
